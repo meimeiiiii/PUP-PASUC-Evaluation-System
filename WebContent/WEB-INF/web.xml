@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>PUP PASUC Evaluation</display-name>
+ 
+   <!-- USER -->
+ 
+  <welcome-file-list>
+    <welcome-file>/UserJSP/index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+	<servlet-name>index</servlet-name>
+	<jsp-file>/UserJSP/index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>index</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>profile</servlet-name>
+	<jsp-file>/UserJSP/profile.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>profile</servlet-name>
+    <url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>credential</servlet-name>
+	<jsp-file>/UserJSP/credential.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>credential</servlet-name>
+    <url-pattern>/crdntl</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>settings</servlet-name>
+	<jsp-file>/UserJSP/settings.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>settings</servlet-name>
+    <url-pattern>/sttngs</url-pattern>
+  </servlet-mapping>
+
+   <servlet>
+	<servlet-name>application</servlet-name>
+	<jsp-file>/UserJSP/application.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>application</servlet-name>
+    <url-pattern>/applctn</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>about</servlet-name>
+	<jsp-file>/UserJSP/about.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>about</servlet-name>
+    <url-pattern>/about</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+	<servlet-name>verifyEmail</servlet-name>
+	<jsp-file>/UserJSP/verifyEmail.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>verifyEmail</servlet-name>
+    <url-pattern>/vrfyEml</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>editAccount</servlet-name>
+	<jsp-file>/UserJSP/editAccount.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>editAccount</servlet-name>
+    <url-pattern>/edtAcct</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+	<servlet-name>changePassword</servlet-name>
+	<jsp-file>/UserJSP/changePassword.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>changePassword</servlet-name>
+    <url-pattern>/chngPsswrd</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+	<servlet-name>changeEmail</servlet-name>
+	<jsp-file>/UserJSP/changeEmail.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>changeEmail</servlet-name>
+    <url-pattern>/chngEml</url-pattern>
+  </servlet-mapping>
+  <!-- END USER -->
+  
+  <!--  PEC -->
+  
+  <servlet>
+	<servlet-name>loginPEC</servlet-name>
+	<jsp-file>/PECJSP/login.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>loginPEC</servlet-name>
+    <url-pattern>/pec-login</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+	<servlet-name>aboutPEC</servlet-name>
+	<jsp-file>/PECJSP/about.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>aboutPEC</servlet-name>
+    <url-pattern>/aboutPEC</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+	<servlet-name>applicationPEC</servlet-name>
+	<jsp-file>/PECJSP/application.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>applicationPEC</servlet-name>
+    <url-pattern>/applicationPEC</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>viewFilePEC</servlet-name>
+	<jsp-file>/PECJSP/viewFile.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>viewFilePEC</servlet-name>
+    <url-pattern>/viewFilePEC</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>allFacultyPEC</servlet-name>
+	<jsp-file>/PECJSP/allFaculty.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>allFacultyPEC</servlet-name>
+    <url-pattern>/allFaculty</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+	<servlet-name>membersPEC</servlet-name>
+	<jsp-file>/PECJSP/members.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>membersPEC</servlet-name>
+    <url-pattern>/membersPEC</url-pattern>
+  </servlet-mapping> 
+ 
+   <servlet>
+	<servlet-name>applicationEntry</servlet-name>
+	<jsp-file>/PECJSP/applicationEntry.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>applicationEntry</servlet-name>
+    <url-pattern>/applicationEntryPEC</url-pattern>
+  </servlet-mapping> 
+
+   <servlet>
+	<servlet-name>facultyPEC</servlet-name>
+	<jsp-file>/PECJSP/faculty.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>facultyPEC</servlet-name>
+    <url-pattern>/facultyProfilePEC</url-pattern>
+  </servlet-mapping> 
+  
+    <servlet>
+	<servlet-name>editAccountPEC</servlet-name>
+	<jsp-file>/PECJSP/editAccount.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>editAccountPEC</servlet-name>
+    <url-pattern>/edtAcctPEC</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+	<servlet-name>changePasswordPEC</servlet-name>
+	<jsp-file>/PECJSP/changePassword.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>changePasswordPEC</servlet-name>
+    <url-pattern>/chngPsswrdPEC</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+	<servlet-name>changeEmailPEC</servlet-name>
+	<jsp-file>/PECJSP/changeEmail.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>changeEmailPEC</servlet-name>
+    <url-pattern>/chngEmlPEC</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>adminContentMngmt</servlet-name>
+	<jsp-file>/AdminJSP/settings.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>adminContentMngmt</servlet-name>
+    <url-pattern>/adminContentMngmt</url-pattern>
+  </servlet-mapping> 
+  
+  
+  <servlet>
+    <servlet-name>PECAccountServlet</servlet-name>
+    <servlet-class>servlets.PECAccountServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PECAccountServlet</servlet-name>
+    <url-pattern>/pec-account</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>PECApplicationServlet</servlet-name>
+    <servlet-class>servlets.PECApplicationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PECApplicationServlet</servlet-name>
+    <url-pattern>/pec-application</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>PECFacultyServlet</servlet-name>
+    <servlet-class>servlets.PECFacultyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PECFacultyServlet</servlet-name>
+    <url-pattern>/pec-faculty</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>PECAboutServlet</servlet-name>
+    <servlet-class>servlets.PECAboutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PECAboutServlet</servlet-name>
+    <url-pattern>/pec-about</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>PECMembersServlet</servlet-name>
+    <servlet-class>servlets.PECMembersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PECMembersServlet</servlet-name>
+    <url-pattern>/pec-members</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>PECSettingsServlet</servlet-name>
+    <servlet-class>servlets.PECSettingsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PECSettingsServlet</servlet-name>
+    <url-pattern>/pec-settings</url-pattern>
+  </servlet-mapping>
+  
+  <!-- END PEC -->
+
+  <servlet>
+    <servlet-name>AccountServlet</servlet-name>
+    <servlet-class>servlets.AccountServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccountServlet</servlet-name>
+    <url-pattern>/account</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>SettingsServlet</servlet-name>
+    <servlet-class>servlets.SettingsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SettingsServlet</servlet-name>
+    <url-pattern>/settings</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CredentialServlet</servlet-name>
+    <servlet-class>servlets.CredentialServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CredentialServlet</servlet-name>
+    <url-pattern>/credential</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ApplicationServlet</servlet-name>
+    <servlet-class>servlets.ApplicationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApplicationServlet</servlet-name>
+    <url-pattern>/application</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AdminSettingsServlet</servlet-name>
+    <servlet-class>servlets.AdminSettingsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminSettingsServlet</servlet-name>
+    <url-pattern>/admin-content-management</url-pattern>
+  </servlet-mapping>
+
+</web-app>
