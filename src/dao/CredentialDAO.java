@@ -528,8 +528,56 @@ public class CredentialDAO{
 			return null;
 		}
 	}
+
+
+		public List<Credential> getAllCredForAdmin(){
+			System.out.println("****DAO: Get all credential");
+		    List<Credential> cred = new ArrayList<>();
+			
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				con = DriverManager.getConnection(url);
+				sta = con.createStatement(); 
+				String query = "SELECT * FROM " + table; 
+				rs = sta.executeQuery(query); 
+				int i=0;
+				while(rs.next()) {
+				    Credential C = new Credential();
+					System.out.println("ROW #" +i);
+					C.setCredId(rs.getString("cred_id"));
+					C.setTimestamp(rs.getString("timestamp"));
+					C.setEmpId(rs.getString("employee_id"));
+					C.setCategory(rs.getString("category"));
+					C.setType(rs.getString("type"));
+					C.setSubtype(rs.getString("subtype"));
+					C.setTitle(rs.getString("title"));
+					C.setDocumentB(rs.getBlob("document").getBytes(1,(int)rs.getBlob("document").length()));
+					C.setScore(rs.getInt("score"));
+					C.setStatus(rs.getString("status"));
+					C.setRemarks(rs.getString("remarks"));
+					C.setAppId(rs.getString("application_id"));
+					C.setEvaluatorId(rs.getString("evaluator_id"));
+					cred.add(C);
+						i++;
+				}
+				
+				rs.close(); 
+				sta.close(); 
+			    con.close();
+			    	
+				return cred;
+				
+			}catch (Exception e) {
+				System.err.println("Exception: "+e.getMessage());
+				return null;
+			}
+		}
+
+	
 }
 	
+
+
 //	public boolean applyCred(Credential C){
 //		try {
 //			System.out.println("****DAO: Update " + C.getCredId());

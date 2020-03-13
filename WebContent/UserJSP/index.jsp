@@ -74,6 +74,7 @@
 
         </div>
         <h5 style="text-align: center;"><a href="pec-login" class="card-link" >Login as PEC</a></h5>
+        <h5 style="text-align: center;"><a href="admin" class="card-link" >Login as Admin</a></h5>
     </div>
     
     <!-- ============================================================== -->

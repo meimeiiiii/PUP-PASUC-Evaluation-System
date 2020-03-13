@@ -200,6 +200,7 @@
     <url-pattern>/chngEmlPEC</url-pattern>
   </servlet-mapping>
   
+ <!-- ADMIN --> 
   <servlet>
 	<servlet-name>adminContentMngmt</servlet-name>
 	<jsp-file>/AdminJSP/settings.jsp</jsp-file>
@@ -209,6 +210,23 @@
     <url-pattern>/adminContentMngmt</url-pattern>
   </servlet-mapping> 
   
+  <servlet>
+	<servlet-name>adminLogin</servlet-name>
+	<jsp-file>/AdminJSP/login.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>adminLogin</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>   
+  
+   <servlet>
+	<servlet-name>adminDB</servlet-name>
+	<jsp-file>/AdminJSP/database.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>adminDB</servlet-name>
+    <url-pattern>/adminDb</url-pattern>
+  </servlet-mapping>  
   
   <servlet>
     <servlet-name>PECAccountServlet</servlet-name>
@@ -309,6 +327,15 @@
   <servlet-mapping>
     <servlet-name>AdminSettingsServlet</servlet-name>
     <url-pattern>/admin-content-management</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>servlets.AdminTablesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/admin-home</url-pattern>
   </servlet-mapping>
 
 </web-app>

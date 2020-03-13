@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.AdminSettings;
-import services.AdminSettingsSvc;
+import services.AdminSvc;
 
 public class AdminSettingsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,7 +20,7 @@ public class AdminSettingsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		System.out.println("\n-------ADMIN - GET");
-		AdminSettingsSvc as = new AdminSettingsSvc();
+		AdminSvc as = new AdminSvc();
 		
 		HttpSession session = request.getSession(true);
 		
@@ -108,7 +108,7 @@ public class AdminSettingsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
  			throws ServletException, IOException {
 		System.out.println("\n-------ADMIN - POST");
-		AdminSettingsSvc as = new AdminSettingsSvc();
+		AdminSvc as = new AdminSvc();
 		
 		HttpSession session = request.getSession(true);
 		

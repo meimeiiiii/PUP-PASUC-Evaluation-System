@@ -1,14 +1,17 @@
-<!-- LOGIN -->
+<!-- ADMIN - LOGIN -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%
+    pageEncoding="ISO-8859-1"%>   
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+ <%
 	response.setHeader("Cache-Control", "no-cache, no-store, must revalidate");	
-	if (session.getAttribute("pec")!= null && session.getAttribute("pecId")!=null && session.getAttribute("pecEMAIL")!=null){
-		System.out.println("[LOGIN] REDIRECT TO APPLICATIONS from INDEX");
-		response.sendRedirect(request.getContextPath() + "/pec-application");	
-}
-%>    
-    
+//	request.getRequestDispatcher("account?process=viewHome").include(request, response);
+//	if (session.getAttribute("faculty")==null && session.getAttribute("empId")==null && session.getAttribute("email")==null){
+//		System.out.println("[CRED] Direct to CRED, Redirect to INDEX");
+//		response.sendRedirect(request.getContextPath() + "/index");	
+//	}
+%>  
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -51,37 +54,28 @@
     
     <div class="splash-container-login">
         <div class="card">
-        <div class="card-header text-center"><span class="splash-description-createacc">PEC Login</span></div>
+        <div class="card-header text-center"><span class="splash-description-createacc">System Admin Login</span></div>
             <div class="card-body">
             <span class="splash-description">Please enter your user information.</span>
-                <form name="login" id="login" action="pec-application?process=view" method="post">
+                <form name="login" id="login" action="admin-home?process=login" method="post">
                     <div class="form-group">
-                        <input class="form-control form-control-lg email-inputmask" type="text" name="emailLogPEC" id="emailLogPEC" placeholder="Email Address" required>
+                        <input class="form-control form-control-lg" type="text" name="userLog" id="userLog" placeholder="Username" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" type="password" name = "pswLogPEC" id="pswLogPEC" placeholder="Password" maxlength="20" required>
+                        <input class="form-control form-control-lg" type="password" name = "pswLog" id="pswLog" placeholder="Password" maxlength="20" required>
                     </div>
                     <button class="btn btn-rounded btn-warning btn-lg btn-block" type="submit" name = "login" id="login" value="Login" style="margin-right: 125px;">Sign in</button>
-                	<div class="text-center">
-                                        <div class="card-footer-item">
-                                            <a href="#" class="card-link" >Forgot Password?</a>
-                                        </div>
-                                    </div>
-                	
                 </form>
-            </div>
+                </div>
 
         </div>
-	        <h5 style="text-align: center;"><a href="index" class="card-link" >Login as Faculty</a></h5>
-    	    <h5 style="text-align: center;"><a href="admin" class="card-link" >Login as Admin</a></h5>
-        
+        <h5 style="text-align: center;"><a href="index" class="card-link" >Login as Faculty</a></h5>
+        <h5 style="text-align: center;"><a href="pec-login" class="card-link" >Login as PEC</a></h5>
     </div>
     
     <!-- ============================================================== -->
     <!-- End of login  -->
-    <!-- ============================================================== -->
-    	
- 
+    <!-- ============================================================== -->   
     
     </div>
     </div>
@@ -91,26 +85,6 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="assets/libs/js/main-js.js"></script>
     
-    <script>
-    $(function(e) {
-        "use strict";
-        	$(".EmployeeID-inputmask").inputmask("99999"),
-            $(".phone-inputmask").inputmask("9999-999-9999"),
-            $(".email-inputmask").inputmask({
-                mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@pup.edu.ph",
-                greedy: !1,
-                onBeforePaste: function(n, a) {
-                    return (e = e.toLowerCase()).replace("mailto:", "")
-                },
-                definitions: {
-                    "*": {
-                        validator: "[0-9A-Za-z!#$%&'*+/=?^_`{|}~/-]",
-                        cardinality: 1,
-                        casing: "lower"
-                    }
-                }
-            })
-    });
-    </script>
+    
 </body>
 </html>

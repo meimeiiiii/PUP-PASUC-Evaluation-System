@@ -326,6 +326,53 @@ public class ApplicationDAO{
 		return null;
 	}
 	
+	public List<Application> getAllAppForAdmin(){
+		System.out.println("****DAO: Get all applications");
+	    List<Application> app = new ArrayList<>();
+	    
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(url);
+			sta = con.createStatement(); 
+			String query = "SELECT * FROM " + table; 
+			rs = sta.executeQuery(query); 
+			
+			int i=0;
+			while(rs.next()) {
+				Application A = new Application();
+				System.out.println("ROW #" +i);
+				A.setAppId(rs.getString("application_id"));
+				A.setDtSubmitted(rs.getString("datetime_submitted"));
+				A.setScoreEduc(rs.getInt("score_educ"));
+				A.setScoreExp(rs.getInt("score_exp"));
+				A.setScoreProf(rs.getInt("score_prof"));
+				A.setTotal(rs.getInt("total"));
+				A.setCurRank(rs.getString("cur_rank"));
+				A.setNewRank(rs.getString("new_rank"));
+				A.setEvaluatorId(rs.getString("evaluator_id"));
+				A.setDtApproved(rs.getString("datetime_approved"));
+				A.setStatus(rs.getString("status"));
+				A.setRemarks(rs.getString("remarks"));
+				A.setEmpId(rs.getString("employee_id"));
+				A.setDocumentB(rs.getBlob("letter").getBytes(1,(int)rs.getBlob("letter").length()));
+
+				app.add(A);
+				i++;
+			}
+			
+			rs.close(); 
+			sta.close(); 
+		    con.close();
+		    	
+			return app;
+
+		}catch (Exception e) {
+			System.err.println("Exception: "+e.getMessage());
+			return null;
+		}
+	}
+	
+	
 }
 
 

@@ -588,6 +588,49 @@ public class FacultyDAO{
 		}
 	}
 	
+	public List<Faculty> getAllForAdmin(){
+		System.out.println("****DAO: Get users");
+	    List<Faculty> faculty = new ArrayList<>();
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(url);
+			sta = con.createStatement(); 
+			String query = "SELECT * FROM " + table; 
+			rs = sta.executeQuery(query); 
+			
+			while(rs.next()) {
+			    Faculty F = new Faculty();
+				F.setEmpId(rs.getString("employee_id"));
+				F.setFirstName(rs.getString("f_name"));
+				F.setMiddleName(rs.getString("m_name"));
+				F.setLastName(rs.getString("l_name"));
+				F.setContactNumber(rs.getString("c_number"));
+				F.setEmail(rs.getString("email_add"));
+				F.setBirthDate(rs.getString("b_date"));
+				F.setGender(rs.getString("gender"));
+				F.setAddress(rs.getString("address"));
+				F.setDepartment(rs.getString("department"));
+				F.setRank(rs.getString("rank"));
+				F.setPassword(rs.getString("psw"));
+				F.setScoreEduc(rs.getInt("score_educ"));
+				F.setScoreExp(rs.getInt("score_exp"));
+				F.setScoreProf(rs.getInt("score_prof"));
+				faculty.add(F);
+			}
+			
+			rs.close(); 
+			sta.close(); 
+		    con.close();
+		    	
+			return faculty;
+
+		}catch (Exception e) {
+			System.err.println("Exception: "+e.getMessage());
+			return null;
+		}
+	}
+	
 } 
 
 

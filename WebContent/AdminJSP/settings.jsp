@@ -1,4 +1,4 @@
-<!-- ADMIN - CONTENT MANAGEMENT -->
+<!-- ADMIN - DATABASE -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>   
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -16,7 +16,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>PUP PASUC Evaluation - Settings</title>
+		<title>PUP PASUC Evaluation - Database</title>
 		<!-- Required meta tags -->
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,8 +30,6 @@
 	    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
 	    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
 	    <link rel="stylesheet" href="assets/libs/css/style.css">
-	    <link rel="stylesheet" href="assets/vendor/inputmask/css/inputmask.css">
-	    <link rel="stylesheet" href="assets/vendor/bootstrap-colorpicker/%40claviska/jquery-minicolors/jquery.minicolors.css">
 	</head>
 	
 	<body>
@@ -52,12 +50,10 @@
                             <a class="nav-link nav-user-img" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-lg fas fa-bars pasuc-yelloww"></i>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown">
                                 <div class="nav-user-info">
-                                    <h5 class="text-white nav-user-name"><i class="m-r-10 mdi mdi-account pasuc-color-yellow"></i>*NAME*</h5>
+                                    <h5 class="text-white nav-user-name"><i class="m-r-10 mdi mdi-account pasuc-color-yellow"></i>ADMIN</h5>
                                 </div>
-                                <a class="dropdown-item" href="editacct"><i class="fas fa-user mr-2"></i>Edit Account</a>
-                                <a class="dropdown-item" href="changeemail"><i class="fas fa-envelope mr-2"></i>Change Email</a>
                                 <a class="dropdown-item" href="changepw"><i class="fas fa-asterisk mr-2"></i>Change Password</a>
-                                <a class="dropdown-item" href="loginregisterholder"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" href="admin-home?process=login"><i class="fas fa-power-off mr-2"></i>Logout</a>
                             </div>
                         </li>
 		        	</ul>
@@ -75,18 +71,29 @@
 		<div class="col-xl-12" style="margin-top: 100px;">
  				
  			<div class="tab-regular">
-    			
+    			 <ul class="nav nav-tabs nav-fill" role="tablist">
+     	            <li class="nav-item">
+                		<a class="nav-link"  href="admin-home?process=view">Admin Database</a>
+     	            </li>
+     	            <li class="nav-item">
+                		<a class="nav-link active"  href="admin-content-management?process=view">Content Management</a>
+     	            </li>
+     	            
+ 				</ul>
  	<!-- ============================================================== -->
 	<!-- END TOP NAV  -->
 	<!-- ============================================================== -->
-		
 	
-		<div class="col-xl-12">
-		<br>
-		<a class="btn btn-sm btn-warning" href="dir-about"><i class="fas fa-angle-double-left"></i>   Back to Application Entries</a>
-		<br><br>
-		
-		<div class="row">
+	<div class="tab-content" id="home-tabs">
+
+				
+				<!-- ============================================================== -->
+				<!-- ABOUT TAB -->
+				<!-- ============================================================== -->
+				
+       			 <div class="tab-pane fade show active">
+       			
+             		<div class="row">
              		<div class="col-xl-2" >
                             <div class="sidebar-nav-fixed border-right">
                             <br>
@@ -103,12 +110,12 @@
              		
              		<div class="col-xl-10">
              		
-             	<div class="splash-container-contentmgmt">
-		<div class="card p-2">
-			<div class="card-header text-center"><span class="splash-description-credentials">Content Management</span></div>
-				<form name="fAppearance" id="fAppearance" action="admin-content-management?process=saveAppearance" method="post">	
-				<div class="card-body">
-				<h2 id="appearance">Appearance</h2><br>
+             <h2 style="text-align: center; color: #800000;">Content Management</h2>
+
+				<div  id="fAppearance">
+				<form name="fAppearance" action="admin-content-management?process=saveAppearance" method="post">	
+				<br>
+				<h2 style="color: #d39f03;" id="appearance">Appearance</h2><br>
 					<div class="row">
 						<div class="col-xl-4 form-group">
         	                <label for="fcolor">Font Color</label>
@@ -127,12 +134,16 @@
        	           	</div>     
 							<br>
 							<button class="btn btn-md btn-warning btn-rounded center" type="submit" name="saveAppearanceBtn" id="saveAppearanceBtn" value="appearance">Save Appearance Changes</button>						
-				</div>
+				
 				</form>
-						
-			<form name="fAbout" id="fAbout" action="admin-content-management?process=saveAbout" method="post">				
-			<div class="card-body">
-				<h2 id="about">About</h2><br>
+				</div>
+				
+				<div id="fAbout"> 
+				<br><br>	
+					
+				<form name="fAbout"  action="admin-content-management?process=saveAbout" method="post">				
+			
+				<h2 style="color: #d39f03;" id="about">About</h2><br>
 					<div class="row">
 						<div class="col-xl-6 form-group">
         	                <label for="mission">Mission</label>
@@ -193,10 +204,13 @@
        	           	           	    
 							<br>
 							<button class="btn btn-md btn-warning btn-rounded center" type="submit" name="saveAboutBtn" id="saveAboutBtn" value="Change Email">Save About Changes</button>						
-			</div>
+			
 			</form>	
-				<div class="card-body">
-				<h2 id="advanced">Advanced</h2><br>
+			</div>
+			
+			<div id="advanced">
+				<br><br>
+				<h2 style="color: #d39f03;" >Advanced</h2><br>
 					<div class="row">
 						<div class="col-xl-4 form-group">
         	                <label for="school">School Name</label>
@@ -217,26 +231,30 @@
 							<button class="btn btn-md btn-warning btn-rounded center" type="submit" name="saveAdvancedBtn" id="saveAdvancedBtn" value="Change Email">Save Advanced Changes</button>						
 				</div>
 				
-					            	</div>
 					            	
-					            	</div>
+					            	
+					            	
              		
              		
               	</div>
               	</div>
-		
-		
-		
+              	</div>
+      
+      
+       			<!-- ============================================================== -->
+				<!-- END OF ABOUT TAB -->
+				<!-- ============================================================== -->
 					</div>
 				</div>
-			
 			</div>
-			</div>
-		</div> 
+		</div>
+           		<!-- ============================================================== -->
+             	<!-- END TOP NAV CODE-->
+             	<!-- ============================================================== --> 
              	
 
 	
-    <!-- ============================================================== -->
+        <!-- ============================================================== -->
     <!-- Java Script -->
     <!-- ============================================================== --> 
     <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
@@ -331,4 +349,3 @@
     
 </body>
 </html>
-	
