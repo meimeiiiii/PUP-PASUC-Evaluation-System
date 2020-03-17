@@ -4,9 +4,12 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import dao.RandomPasswordDAO;
+import dao.FacultyDAO;
 import model.Activity;
 import model.Faculty;
 import others.Mail;
@@ -159,6 +162,7 @@ public class AccountServlet extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("\n-------ACCOUNT - GET");
 		AccountSvc acc = new AccountSvc();
+		FacultyDAO fDAO = new FacultyDAO();
 		ActivityLogSvc act = new ActivityLogSvc();
 		
 		HttpSession session = request.getSession(true);
@@ -209,13 +213,46 @@ public class AccountServlet extends HttpServlet {
 	        	
 			break;
 	
-	// ---------------------------------- account?process=forgotPassword ---------------------------------------------
+	// ---------------------------------- account?process=forgotpw ---------------------------------------------
 		
-		case "forgotPassword":
+		case "forgotpw":
 			System.out.println("[FORGOT PW] START.");
+			String emailfpw = request.getParameter("emailIn");
+			System.out.println("email: " + emailfpw);
+			
+			if(acc.forgotpw(emailfpw) == true){
+				System.out.println("[FPW] Sucessful");
+				
+				int n = 8;
+				String random = RandomPasswordDAO.getAlphaNumericString(n); 
+				System.out.println("random generated password: " + random);
+				//update database 
+				if(fDAO.changePassword(emailfpw, random) == true){
+					//email the random password
+					try {
+						if (Mail.forgotpw(emailfpw, random, pasucEmail, pasucPsw) == true)
+						{ //forward to login page
+							System.out.println("\nEmail sent!");
+							request.getRequestDispatcher("/index").include(request, response);
+						}
+					} catch (AddressException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}else {
+				System.out.println("[FPW] Incorrect email.");
+				request.setAttribute("errorMessageLogin","Incorrect email."); 
+				request.getRequestDispatcher("/forgotPW").forward(request, response); //changed forward fr include
+			}
+			
 			System.out.println("[FORGOT PW] END.");
-			request.getRequestDispatcher("/about").forward(request, response);
+	//		request.getRequestDispatcher("/about").forward(request, response);
 			break;
+
 
 	// ---------------------------------- account?process=register ---------------------------------------------
 				
@@ -379,7 +416,7 @@ public class AccountServlet extends HttpServlet {
 		System.out.println("\n-------ACCOUNT - POST");
 		
 		AccountSvc acc = new AccountSvc();
-		
+		FacultyDAO fDAO = new FacultyDAO();
 		ActivityLogSvc act = new ActivityLogSvc();
 		
 		HttpSession session = request.getSession(true);
@@ -432,11 +469,44 @@ public class AccountServlet extends HttpServlet {
 		
 		// ---------------------------------- account?process=forgotPassword ---------------------------------------------
 			
-			case "forgotPassword":
+			case "forgotpw":
 				System.out.println("[FORGOT PW] START.");
+				String emailfpw = request.getParameter("emailIn");
+				System.out.println("email: " + emailfpw);
+				
+				if(acc.forgotpw(emailfpw) == true){
+					System.out.println("[FPW] Sucessful");
+					
+					int n = 8;
+					String random = RandomPasswordDAO.getAlphaNumericString(n); 
+					System.out.println("random generated password: " + random);
+					//update database 
+					if(fDAO.changePassword(emailfpw, random) == true){
+						//email the random password
+						try {
+							if (Mail.forgotpw(emailfpw, random, pasucEmail, pasucPsw) == true)
+							{ //forward to login page
+								System.out.println("\nEmail sent!");
+								request.getRequestDispatcher("/index").include(request, response);
+							}
+						} catch (AddressException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (MessagingException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}else {
+					System.out.println("[FPW] Incorrect email.");
+					request.setAttribute("errorMessageLogin","Incorrect email."); 
+					request.getRequestDispatcher("/forgotPW").forward(request, response); //changed forward fr include
+				}
+				
 				System.out.println("[FORGOT PW] END.");
-				request.getRequestDispatcher("/about").forward(request, response);
+		//		request.getRequestDispatcher("/about").forward(request, response);
 				break;
+				
 
 		// ---------------------------------- account?process=register ---------------------------------------------
 

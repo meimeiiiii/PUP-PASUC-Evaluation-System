@@ -47,6 +47,46 @@ public class Mail{
             return false;
         }
     }
+	
+	public static boolean forgotpw(String toUser, String randompw, String frUser, String frPsw) 
+			throws AddressException, MessagingException {
+	    Properties prop = new Properties();
+		prop.put("mail.smtp.host", "smtp.gmail.com");
+		prop.put("mail.smtp.starttls.enable", "true"); //TLS
+        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.port", "587");
+         
+        String subj = "PUP PASUC FORGOT PASSWORD";
+        
+        Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
+        	protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(frUser, frPsw);
+            }
+        });
+        
+        String msgBod = "Hi,\n\n"
+				+ "You recently requested to reset your password for your PUP PASUC account.\n\n"
+				+ "Use this temporary password enclosed in the parenthesis (" + randompw + ") to regain access on your account."
+				+ "\n\nThanks,\nPUP-PASUC Admin"
+				+ "\n\nP.S. DO NOT REPLY";
+        try {
+	        Message message = new MimeMessage(session);
+	            message.setFrom(new InternetAddress(frUser));
+	            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toUser));
+	            message.setSubject(subj);
+	            message.setText(msgBod);
+
+            Transport.send(message);
+            System.out.println("Mail sent successfully.");
+	            
+	        return true;
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }
 	

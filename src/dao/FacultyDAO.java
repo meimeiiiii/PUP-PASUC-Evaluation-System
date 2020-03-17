@@ -103,6 +103,47 @@ public class FacultyDAO{
 		}
 	}
 	
+	public  boolean forgotpw(String email){ 
+		try{
+			System.out.println("***DAO: Forgot Email" + email);
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(url);
+			
+			String query = "SELECT * FROM " + table + " WHERE `email_add`=?";
+			System.out.println("*****query: "+query);
+			
+			java.sql.PreparedStatement st = con.prepareStatement(query);
+			st.setString(1,email);
+			
+			ResultSet rs = st.executeQuery();
+			
+
+			while (rs.next()) {
+				System.out.println("Email " + rs.getString("email_add"));
+				System.out.println("****Match");
+				return true;
+			}
+				System.out.println("****Not Match");
+				rs.close();
+				st.close();
+				con.close();
+				return false;
+			
+		}
+		catch(SQLException ex){
+			while (ex!=null){
+				System.err.println ("SQL Exception: " + ex.getMessage ());
+				ex = ex.getNextException();
+			}
+			return false;
+		}
+		catch(java.lang.Exception ex){
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	
+	
 	public  boolean checkEmail(String email){
 		try{
 			System.out.println("***DAO: Check email " + email);

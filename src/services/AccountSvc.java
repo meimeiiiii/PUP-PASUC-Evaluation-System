@@ -29,6 +29,18 @@ public class AccountSvc {
 		}
 	}
 	
+	public boolean forgotpw (String email) {
+		System.out.println("*SERVICE: Forgot Password");
+		
+		if(fDAO.forgotpw(email) == true) {
+			System.out.println("**successful");
+			return true;
+		}else {
+			System.out.println("**unsuccessful");
+			return false;
+		}
+	}
+	
 	public boolean addUser(String fn, String mn, String ln, String cn, String email, 
 			String bd, String gen, String add, String empId, String dept, String psw, 
 			int scoreEduc, int scoreExp, int scoreProf) {

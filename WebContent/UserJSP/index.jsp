@@ -66,7 +66,7 @@
                     <button class="btn btn-rounded btn-warning btn-lg btn-block" type="submit" name = "login" id="login" value="Login" style="margin-right: 125px;">Sign in</button>
                 	<div class="text-center">
                                         <div class="card-footer-item">
-                                            <a href="#" class="card-link" >Forgot Password?</a>
+                                            <a href="forgotpassword" class="card-link" >Forgot Password?</a>
                                         </div>
                                     </div>
                 </form>

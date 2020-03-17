@@ -337,5 +337,21 @@
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/admin-home</url-pattern>
   </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+   <servlet>
+	<servlet-name>ForgotPassword</servlet-name>
+	<jsp-file>/UserJSP/forgotPW.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>ForgotPassword</servlet-name>
+    <url-pattern>/forgotpassword</url-pattern>
+  </servlet-mapping>  
+
 
 </web-app>
