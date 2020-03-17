@@ -9,7 +9,8 @@ import java.io.InputStream;
 import model.Application;
 
 public class ApplicationDAO{
-	 String url = "jdbc:mysql://127.0.0.1/pup_pasuc?user=root&password=password&useSSL=false";
+	// String url = "jdbc:mysql://127.0.0.1/pup_pasuc?user=root&password=password&useSSL=false";
+	 String url = "jdbc:mysql://127.0.0.1/pup_pasuc?user=IerizNicolle&password=Onetwothree45!&useSSL=false";
 	 String table = "pup_pasuc.application";
 	 Connection con = null;
 	 Statement sta = null;

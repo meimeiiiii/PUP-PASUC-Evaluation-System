@@ -7,7 +7,7 @@ import javax.mail.internet.*;
 public class Mail{  	
 	public static void main(String args[]) {
 		try {
-			System.out.println(Send("louisa.may05@gmail.com","pup.cores@gmail.com","CoRES123!",
+			System.out.println(Send("ieriznicolle@gmail.com","pupcores.19@gmail.com","impinitydobol",
 					"PUP PASUC Evaluation: Email Verification","Test"));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

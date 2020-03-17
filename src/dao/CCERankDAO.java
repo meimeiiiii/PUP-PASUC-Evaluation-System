@@ -10,7 +10,8 @@ import java.util.List;
 import model.CCERank;
 
 public class CCERankDAO {
-	 String url = "jdbc:mysql://127.0.0.1/pup_pasuc?user=root&password=password&useSSL=false";
+	// String url = "jdbc:mysql://127.0.0.1/pup_pasuc?user=root&password=password&useSSL=false";
+	 String url = "jdbc:mysql://127.0.0.1/pup_pasuc?user=IerizNicolle&password=Onetwothree45!&useSSL=false";
 	 String table = "pup_pasuc.cce_rank";
 	 Connection con = null;
 	 Statement sta = null;

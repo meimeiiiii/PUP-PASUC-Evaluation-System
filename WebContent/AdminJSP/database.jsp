@@ -129,7 +129,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="card-body">
+										<div class="card-body" id="faculty-body">
 
 											<table class="table table-bordered table-hover"
 												 style="width: 6.6%"style="width: 100%" id="factable">
@@ -200,7 +200,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="card-body">
+										<div class="card-body" id="credentials-body">
 
 											<table class="table table-bordered table-hover"
 												style="width: 100%" id="credtable">
@@ -266,7 +266,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="card-body">
+										<div class="card-body" id="application-body">
 
 											<table class="table table-bordered table-hover"
 												style="width: 100%" id="appltable">
@@ -335,7 +335,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="card-body">
+										<div class="card-body" id="evaluators-body">
 
 											<table class="table table-bordered table-hover"
 												style="width: 100%" id="evalutable">

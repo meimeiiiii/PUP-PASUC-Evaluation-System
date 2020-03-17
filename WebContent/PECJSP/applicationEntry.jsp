@@ -136,7 +136,7 @@
                                                             <div class="modal-body">
                                                             	
 																<br>                                                             
-											               		<h5 class="text-center">Are you sure you want are done evaluating this application?</h5>
+											               		<h5 class="text-center">Are you sure you are done evaluating this application?</h5>
 																<br>
 																<br>                                                             
 											               		<select name="newAppStatus" id="newAppStatus">

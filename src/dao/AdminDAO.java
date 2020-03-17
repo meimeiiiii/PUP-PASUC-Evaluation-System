@@ -7,7 +7,8 @@ import java.sql.Statement;
 import model.AdminSettings;
 
 public class AdminDAO {
-	 String url = "jdbc:mysql://127.0.0.1/pup_pasuc?user=root&password=password&useSSL=false";
+	// String url = "jdbc:mysql://127.0.0.1/pup_pasuc?user=root&password=password&useSSL=false";
+	 String url = "jdbc:mysql://127.0.0.1/pup_pasuc?user=IerizNicolle&password=Onetwothree45!&useSSL=false";
 	 String table = "pup_pasuc.admin_settings";
 	 Connection con = null;
 	 Statement sta = null;

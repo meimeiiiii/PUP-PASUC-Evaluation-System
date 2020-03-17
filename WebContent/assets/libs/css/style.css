@@ -7910,3 +7910,16 @@ Media Query
     background: #343a40 !important;
     border-color: #343a40;
 }
+
+
+
+
+#faculty-body, #credentials-body, #application-body, #evaluators-body {
+	display: inline-block;
+	height: 500px;
+	width: 1045px;
+	overflow-y: auto;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+

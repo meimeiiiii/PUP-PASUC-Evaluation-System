@@ -16,8 +16,8 @@ import services.ActivityLogSvc;
 
 public class AccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	String pasucEmail = "pup.cores@gmail.com";
-	String pasucPsw = "CoRES123!";
+	String pasucEmail = "pupcores.19@gmail.com";
+	String pasucPsw = "impinitydobol";
 	
     public AccountServlet() {
         super();
@@ -250,6 +250,7 @@ public class AccountServlet extends HttpServlet {
 				
 				try {
 					Mail.Send(emailIn, pasucEmail, pasucPsw, subj, msgBod);
+					System.out.println("EmailIn " + emailIn);
 				} catch (MessagingException e) {
 					System.err.println("Error in sending email.");
 					e.printStackTrace();
